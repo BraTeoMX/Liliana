@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día del Contador! 💼</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { 
+                opacity: 0;
+                transform: scale(0.3) translateY(-50px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1.2s ease-out 0.5s both;
+        }
+        
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1.2s ease-out 0.8s both;
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        .number-rain {
+            position: fixed;
+            top: -50px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 18px;
+            font-weight: bold;
+            animation: numberFall 8s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes numberFall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .heart-float {
+            position: fixed;
+            color: #ff6b9d;
+            font-size: 20px;
+            animation: heartFloat 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(-10vh) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20vh) scale(0);
+            }
+        }
+        
+        .btn-magical {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-magical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s;
+        }
+        
+        .btn-magical:hover::before {
+            left: 100%;
+        }
+        
+        .btn-magical:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid rgba(255,255,255,0.75);
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(255,255,255,0.75); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <!-- Lluvia de números -->
+    <div id="numberRain"></div>
+    
+    <!-- Corazones flotantes -->
+    <div id="heartFloat"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="max-w-4xl w-full">
+        <!-- Título principal -->
+        <div class="text-center mb-12 bounce-in">
+            <h1 class="text-6xl md:text-8xl font-bold text-white dancing-font mb-4 floating">
+                ¡Feliz Día del Contador!
+            </h1>
+            <div class="text-2xl md:text-3xl text-white typewriter mx-auto" style="width: fit-content;">
+                Para la mejor contadora del mundo 💖 Mi novia Liliana 💖 
+            </div>
+        </div>
+        
+        <!-- Tarjeta principal -->
+        <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-2xl slide-in-left card-hover pulse-glow relative">
+            <!-- Elementos decorativos -->
+            <div class="sparkle" style="top: 20px; left: 30px; animation-delay: 0s;"></div>
+            <div class="sparkle" style="top: 40px; right: 50px; animation-delay: 0.5s;"></div>
+            <div class="sparkle" style="bottom: 60px; left: 80px; animation-delay: 1s;"></div>
+            <div class="sparkle" style="bottom: 30px; right: 30px; animation-delay: 1.5s;"></div>
+            
+            <div class="text-center">
+                <div class="text-6xl mb-6 floating">
+                    <i class="fas fa-calculator text-yellow-300"></i>
+                    <i class="fas fa-chart-line text-green-300 mx-4"></i>
+                    <i class="fas fa-coins text-yellow-400"></i>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 dancing-font">
+                    Hoy celebramos tu dedicación y pasión
+                </h2>
+                
+                <p class="text-lg md:text-xl text-white leading-relaxed mb-8">
+                    En este día especial quiero reconocer todo tu esfuerzo, tu precisión impecable y 
+                    la forma increíble en que manejas los números. Eres una contadora excepcional y 
+                    una persona aún más extraordinaria. ¡Que siempre balanceen tus días con felicidad!
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white bg-opacity-30 rounded-xl p-6 card-hover">
+                        <i class="fas fa-medal text-4xl text-yellow-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Excelencia</h3>
+                        <p class="text-white text-sm">Tu precisión es admirable</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-30 rounded-xl p-6 card-hover">
+                        <i class="fas fa-heart text-4xl text-red-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Pasión</h3>
+                        <p class="text-white text-sm">Amas lo que haces</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-30 rounded-xl p-6 card-hover">
+                        <i class="fas fa-star text-4xl text-purple-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white mb-2">Dedicación</h3>
+                        <p class="text-white text-sm">Siempre das lo mejor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje personal -->
+        <div class="bg-gradient-to-r from-pink-500 to-purple-600 rounded-3xl p-8 mt-8 shadow-2xl slide-in-right card-hover relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="text-3xl font-bold text-white mb-4 dancing-font text-center">
+                    Un mensaje especial para ti
+                </h3>
+                <p class="text-white text-lg text-center leading-relaxed mb-6">
+                    Cada día me sorprendes más con tu inteligencia, tu determinación y la forma 
+                    en que conviertes los números en arte. Eres increíble en todo lo que haces, 
+                    y hoy es el día perfecto para celebrar tu profesión y a la persona maravillosa que eres.
+                </p>
+                <div class="text-center">
+                    <button onclick="showSurprise()" class="btn-magical text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg">
+                        ¡Toca aquí para una sorpresa! ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje final -->
+        <div class="text-center mt-12">
+            <p class="text-2xl text-white dancing-font opacity-90">
+                Con todo mi amor y admiración 💕
+            </p>
+        </div>
+    </div>
+    
+    <!-- Modal de sorpresa -->
+    <div id="surpriseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-3xl p-8 mx-4 max-w-md transform scale-0 transition-transform duration-500" id="modalContent">
+            <div class="text-center">
+                <div class="text-6xl mb-4">🎉</div>
+                <h3 class="text-2xl font-bold text-purple-600 mb-4 dancing-font">¡Sorpresa!</h3>
+                <p class="text-gray-700 mb-6">
+                    Eres la cuenta más importante en el balance de mi vida. 
+                    Sin ti, mis números nunca cuadrarían. ¡Te amo Liliana 💖!
+                </p>
+                <button onclick="closeSurprise()" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600 transition-colors">
+                    ❤️ Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Crear lluvia de números
+        function createNumberRain() {
+            const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '$', '%', '=', '+', '-'];
+            const container = document.getElementById('numberRain');
+            
+            setInterval(() => {
+                const number = document.createElement('div');
+                number.className = 'number-rain';
+                number.textContent = numbers[Math.floor(Math.random() * numbers.length)];
+                number.style.left = Math.random() * 100 + 'vw';
+                number.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                container.appendChild(number);
+                
+                setTimeout(() => {
+                    number.remove();
+                }, 8000);
+            }, 300);
+        }
+        
+        // Crear corazones flotantes
+        function createHeartFloat() {
+            const container = document.getElementById('heartFloat');
+            const hearts = ['💖', '💕', '💗', '💝', '❤️'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, 2000);
+        }
+        
+        // Mostrar sorpresa
+        function showSurprise() {
+            const modal = document.getElementById('surpriseModal');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                content.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Crear confeti
+            createConfetti();
+        }
+        
+        // Cerrar sorpresa
+        function closeSurprise() {
+            const modal = document.getElementById('surpriseModal');
+            const content = document.getElementById('modalContent');
+            
+            content.style.transform = 'scale(0)';
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+        
+        // Crear confeti
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.zIndex = '1000';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.animation = 'numberFall 3s linear forwards';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+        
+        // Inicializar animaciones
+        window.addEventListener('load', () => {
+            createNumberRain();
+            createHeartFloat();
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('surpriseModal').addEventListener('click', (e) => {
+            if (e.target.id === 'surpriseModal') {
+                closeSurprise();
+            }
+        });
+    </script>
+</body>
+</html>
